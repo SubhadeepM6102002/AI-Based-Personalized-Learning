@@ -1,0 +1,183 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Full-width container */
+.container {
+  width: 100%;        
+  max-width: 100%;    
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  text-align: center;
+  background: #4f46e5;
+  color: white;
+  padding: 30px;
+  border-radius: 0;
+  margin-bottom: 20px;
+}
+
+header h1 { 
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+
+/* Sections */
+.progress-section, 
+.add-playlist, 
+.playlist {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.playlist ul {
+  list-style: none;
+  padding: 0;
+}
+
+.playlist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap; /* ✅ ensures text doesn’t overflow */
+}
+
+.playBtn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.playBtn:hover {
+  background: #4338ca;
+}
+
+/* Circular Progress */
+.circular-progress {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.circular-progress svg {
+  transform: rotate(-90deg);
+  width: 100px;
+  height: 100px;
+}
+
+.circular-progress circle {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.circular-progress circle.bg {
+  stroke: #e6e6e6;
+}
+
+.circular-progress circle.progress {
+  stroke: #4f46e5;
+  stroke-dasharray: 219.91;  
+  stroke-dashoffset: 219.91;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.progress-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: #4f46e5;
+}
+
+/* ✅ RESPONSIVE STYLES */
+@media (max-width: 992px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+  .progress-section, .add-playlist, .playlist {
+    width: 95%;
+    padding: 18px;
+  }
+  .circular-progress {
+    width: 90px;
+    height: 90px;
+  }
+  .circular-progress svg {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  .progress-section, .add-playlist, .playlist {
+    width: 100%;
+    padding: 16px;
+  }
+  .circular-progress {
+    width: 80px;
+    height: 80px;
+  }
+  .circular-progress svg {
+    width: 80px;
+    height: 80px;
+  }
+  .progress-value {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 20px;
+  }
+  header h1 {
+    font-size: 1.4rem;
+  }
+  .progress-section, .add-playlist, .playlist {
+    padding: 14px;
+    border-radius: 8px;
+  }
+  .circular-progress {
+    width: 70px;
+    height: 70px;
+  }
+  .circular-progress svg {
+    width: 70px;
+    height: 70px;
+  }
+  .progress-value {
+    font-size: 12px;
+  }
+  .playlist li {
+    flex-direction: column; /* stack on mobile */
+    align-items: flex-start;
+  }
+  .playBtn {
+    width: 100%; /* full width button */
+    text-align: center;
+  }
+}

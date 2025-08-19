@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Educator - Student Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>AI EDUCATOR</h1>
+    <p>Access your AI-powered learning experience</p>
+
+    <!-- 🔹 Wrap inputs in a form -->
+    <form onsubmit="login(event)">
+      <div class="input-group">
+        <input type="name" id="name" placeholder="Student name" required>
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" placeholder="Password" required>
+      </div>
+
+      <button type="submit" class="btn">Start Learning</button>
+    </form>
+
+    <div class="links">
+      <a href="#">Reset Password</a>
+      <a href="#">Support</a>
+    </div>
+
+    <div class="footer">
+      © 2025 AI EDUCATOR. All rights reserved.
+    </div>
+  </div>
+
+  <!-- 🔹 Add script at the bottom -->
+  <script>
+  function login(event) {
+    event.preventDefault(); // stop default form submission
+
+    // Get student name from input
+    const studentName = document.getElementById("name").value;
+
+    // Save name in localStorage
+    localStorage.setItem("studentName", studentName);
+
+    // Redirect to dashboard
+    window.location.href = "dashboard.html"; 
+  }
+</script>
+
+</body>
+
+</html>

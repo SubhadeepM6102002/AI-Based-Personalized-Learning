@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 🔹 Show student name from localStorage
   const studentName = localStorage.getItem("studentName");
   if (studentName) {
     document.getElementById("welcome").textContent = `Welcome, ${studentName}`;
@@ -11,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const progressBar = document.getElementById("progressBar");
   const progressText = document.getElementById("progressText");
 
-  const API_KEY = "AIzaSyATjJnBaiRSV1ziCskE6dfCVqzxxw1eBNc"; // ✅ Replace with your API key
+  const API_KEY = "AIzaSyATjJnBaiRSV1ziCskE6dfCVqzxxw1eBNc"; 
 
   function extractPlaylistId(url) {
     const match = url.match(/[?&]list=([a-zA-Z0-9_-]+)/);
@@ -26,9 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const percent = Math.round((checked.length / checkboxes.length) * 100);
 
-    // Update circular progress bar
     const circle = document.getElementById("progressCircle");
-    const radius = 35; // matches r in <circle>
+    const radius = 35; 
     const circumference = 2 * Math.PI * radius;
     const offset = circumference - (percent / 100) * circumference;
 
@@ -68,14 +66,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="${videoUrl}" target="_blank">${videoTitle}</a>
           </label>
         `;
-
-        // 🔹 Update progress when checkbox changes
         li.querySelector("input").addEventListener("change", updateProgress);
 
         videoList.appendChild(li);
       });
 
-      // Reset progress bar
       updateProgress();
     } catch (error) {
       videoList.innerHTML = "❌ Failed to load playlist.";
